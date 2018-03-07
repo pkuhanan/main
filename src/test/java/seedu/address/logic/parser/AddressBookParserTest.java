@@ -173,14 +173,33 @@ public class AddressBookParserTest {
     }
 
     @Test
+    public void parseCommand_selectWithShortcut() throws Exception {
+        SelectCommand command = (SelectCommand) parser.parseCommand(
+                SelectCommand.COMMAND_SHORTCUT + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new SelectCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
     public void parseCommand_redoCommandWord_returnsRedoCommand() throws Exception {
         assertTrue(parser.parseCommand(RedoCommand.COMMAND_WORD) instanceof RedoCommand);
         assertTrue(parser.parseCommand("redo 1") instanceof RedoCommand);
     }
 
     @Test
+    public void parseCommand_redoCommandWord_returnsRedoCommandWithShortcut() throws Exception {
+        assertTrue(parser.parseCommand(RedoCommand.COMMAND_SHORTCUT) instanceof RedoCommand);
+        assertTrue(parser.parseCommand("redo 1") instanceof RedoCommand);
+    }
+
+    @Test
     public void parseCommand_undoCommandWord_returnsUndoCommand() throws Exception {
         assertTrue(parser.parseCommand(UndoCommand.COMMAND_WORD) instanceof UndoCommand);
+        assertTrue(parser.parseCommand("undo 3") instanceof UndoCommand);
+    }
+
+    @Test
+    public void parseCommand_undoCommandWord_returnsUndoCommandWithShortcut() throws Exception {
+        assertTrue(parser.parseCommand(UndoCommand.COMMAND_SHORTCUT) instanceof UndoCommand);
         assertTrue(parser.parseCommand("undo 3") instanceof UndoCommand);
     }
 
