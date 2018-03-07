@@ -93,8 +93,14 @@ public class AddressBookParser {
         case UndoCommand.COMMAND_WORD:
             return new UndoCommand();
 
+        case UndoCommand.COMMAND_SHORTCUT:
+            return new UndoCommand();
+
         case RedoCommand.COMMAND_WORD:
             return new RedoCommand();
+
+        case RedoCommand.COMMAND_SHORTCUT:
+             return new RedoCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
