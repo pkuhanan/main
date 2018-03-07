@@ -119,6 +119,12 @@ public class AddressBookParserTest {
     }
 
     @Test
+    public void parseCommand_listWithShortcut() throws Exception {
+        assertTrue(parser.parseCommand(ListCommand.COMMAND_SHORTCUT) instanceof ListCommand);
+        assertTrue(parser.parseCommand(ListCommand.COMMAND_SHORTCUT + " 3") instanceof ListCommand);
+    }
+
+    @Test
     public void parseCommand_select() throws Exception {
         SelectCommand command = (SelectCommand) parser.parseCommand(
                 SelectCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
