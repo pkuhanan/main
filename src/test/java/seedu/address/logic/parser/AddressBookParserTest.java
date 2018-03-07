@@ -60,7 +60,7 @@ public class AddressBookParserTest {
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_SHORTCUT) instanceof ClearCommand);
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_SHORTCUT + " 3") instanceof ClearCommand);
     }
-    
+
     @Test
     public void parseCommand_delete() throws Exception {
         DeleteCommand command = (DeleteCommand) parser.parseCommand(
@@ -107,6 +107,19 @@ public class AddressBookParserTest {
     public void parseCommand_history() throws Exception {
         assertTrue(parser.parseCommand(HistoryCommand.COMMAND_WORD) instanceof HistoryCommand);
         assertTrue(parser.parseCommand(HistoryCommand.COMMAND_WORD + " 3") instanceof HistoryCommand);
+
+        try {
+            parser.parseCommand("histories");
+            fail("The expected ParseException was not thrown.");
+        } catch (ParseException pe) {
+            assertEquals(MESSAGE_UNKNOWN_COMMAND, pe.getMessage());
+        }
+    }
+
+    @Test
+    public void parseCommand_historyWithShortcut() throws Exception {
+        assertTrue(parser.parseCommand(HistoryCommand.COMMAND_SHORTCUT) instanceof HistoryCommand);
+        assertTrue(parser.parseCommand(HistoryCommand.COMMAND_SHORTCUT + " 3") instanceof HistoryCommand);
 
         try {
             parser.parseCommand("histories");
