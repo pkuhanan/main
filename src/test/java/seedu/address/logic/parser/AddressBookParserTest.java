@@ -55,8 +55,12 @@ public class AddressBookParserTest {
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD + " 3") instanceof ClearCommand);
     }
 
-
-
+    @Test
+    public void parseCommand_clearWithShortcut() throws Exception {
+        assertTrue(parser.parseCommand(ClearCommand.COMMAND_SHORTCUT) instanceof ClearCommand);
+        assertTrue(parser.parseCommand(ClearCommand.COMMAND_SHORTCUT + " 3") instanceof ClearCommand);
+    }
+    
     @Test
     public void parseCommand_delete() throws Exception {
         DeleteCommand command = (DeleteCommand) parser.parseCommand(
