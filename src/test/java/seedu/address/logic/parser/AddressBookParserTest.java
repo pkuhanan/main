@@ -48,11 +48,14 @@ public class AddressBookParserTest {
         assertEquals(new AddCommand(person), command);
     }
 
+
     @Test
     public void parseCommand_clear() throws Exception {
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD) instanceof ClearCommand);
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD + " 3") instanceof ClearCommand);
     }
+
+
 
     @Test
     public void parseCommand_delete() throws Exception {
@@ -88,6 +91,12 @@ public class AddressBookParserTest {
     public void parseCommand_help() throws Exception {
         assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD) instanceof HelpCommand);
         assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD + " 3") instanceof HelpCommand);
+    }
+
+    @Test
+    public void parseCommand_helpWithShortcut() throws Exception {
+        assertTrue(parser.parseCommand(HelpCommand.COMMAND_SHORTCUT) instanceof HelpCommand);
+        assertTrue(parser.parseCommand(HelpCommand.COMMAND_SHORTCUT + " 3") instanceof HelpCommand);
     }
 
     @Test
