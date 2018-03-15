@@ -69,7 +69,7 @@ public class XmlAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
-        balance = Double.toString(source.getMoney().balance);
+        balance = source.getMoney().value;
         tagged = new ArrayList<>();
         for (Tag tag : source.getTags()) {
             tagged.add(new XmlAdaptedTag(tag));

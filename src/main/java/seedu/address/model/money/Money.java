@@ -54,5 +54,12 @@ public class Money {
         return balance > 0.0;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof Money // instanceof handles nulls
+                && this.value.equals(((Money) other).value)); // state check
+    }
+
 
 }

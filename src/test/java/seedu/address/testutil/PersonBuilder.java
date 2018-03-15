@@ -3,6 +3,7 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
+import seedu.address.model.money.Money;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -10,7 +11,6 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
-import seedu.address.model.money.Money;
 
 /**
  * A utility class to help with building Person objects.
@@ -21,7 +21,7 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_BALANCE = "10.00";
+    public static final String DEFAULT_BALANCE = "10";
     public static final String DEFAULT_TAGS = "friends";
 
     private Name name;
@@ -93,6 +93,9 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Money} of the {@code Person} that we are building.
+     */
     public PersonBuilder withMoney(String balance) {
         this.balance = new Money(balance);
         return this;
