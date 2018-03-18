@@ -55,7 +55,6 @@ public class PersonBuilder {
     /**
      * Sets the {@code Name} of the {@code Person} that we are building.
      */
-
     public PersonBuilder withName(String name) {
         this.name = new Name(name);
         return this;
@@ -66,6 +65,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withTags(String ... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
+        return this;
+    }
+
+    /**
+     * Set a empty set {@code Set<Tag>} and set it to the {@code Person} that we are building.
+     */
+    public PersonBuilder withoutTags() {
+        this.tags = SampleDataUtil.getTagSet();
         return this;
     }
 
@@ -100,7 +107,6 @@ public class PersonBuilder {
         this.balance = new Money(balance);
         return this;
     }
-
 
     public Person build() {
         return new Person(name, phone, email, address, balance, tags);
