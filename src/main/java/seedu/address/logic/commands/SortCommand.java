@@ -22,7 +22,9 @@ public class SortCommand extends Command {
 
     // private final NameContainsKeywordsPredicate predicate;
 
-    public SortCommand() {}
+    public SortCommand(String sortKey, String order) {
+
+    }
 
 //    public SortCommand(NameContainsKeywordsPredicate predicate) {
 //        this.predicate = predicate;

@@ -45,6 +45,19 @@ public class ParserUtil {
     }
 
     /**
+     * Parses {@code args} into an {@code sortKey} and returns it. Leading and trailing whitespaces will be
+     * trimmed.
+     * @throws IllegalValueException if the specified SortKey is invalid (not non-zero unsigned integer).
+     */
+    public static Index parseSortKey(String args) throws IllegalValueException {
+        String trimmedArgs = args.trim();
+        if (!StringUtil.isNonZeroUnsignedInteger(trimmedIndex)) {
+            throw new IllegalValueException(MESSAGE_INVALID_INDEX);
+        }
+        return Index.fromOneBased(Integer.parseInt(trimmedIndex));
+    }
+
+    /**
      * Parses a {@code String name} into a {@code Name}.
      * Leading and trailing whitespaces will be trimmed.
      *

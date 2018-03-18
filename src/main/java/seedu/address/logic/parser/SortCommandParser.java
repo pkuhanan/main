@@ -25,35 +25,14 @@ public class SortCommandParser implements Parser<SortCommand> {
      */
     public SortCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_MONEY,
-                        PREFIX_TAG);
-        Index index;
-        return new SortCommand();
+        try {
+            String sortKey = ParserUtil.parseSortKey(args);
+            String sortOrder = ParserUtil.parseSortOrder(args); // either "asc" or "desc"
+            index = ParserUtil.parseIndex(argMultimap.getPreamble());
+            return new SortCommand(sortKey, sortOrder);
+        } catch (IllegalValueException ive) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
+        }
     }
-
-//        try {
-//            index = ParserUtil.parseIndex(argMultimap.getPreamble());
-//        } catch (IllegalValueException ive) {
-//            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
-//        }
-//
-//        EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
-//        try {
-//            ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME)).ifPresent(editPersonDescriptor::setName);
-//            ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE)).ifPresent(editPersonDescriptor::setPhone);
-//            ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL)).ifPresent(editPersonDescriptor::setEmail);
-//            ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS)).ifPresent(editPersonDescriptor::setAddress);
-//            ParserUtil.parseMoney(argMultimap.getValue(PREFIX_MONEY)).ifPresent(editPersonDescriptor::setMoney);
-//        } catch (IllegalValueException ive) {
-//            throw new ParseException(ive.getMessage(), ive);
-//        }
-//
-//        if (!editPersonDescriptor.isAnyFieldEdited()) {
-//            throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
-//        }
-//
-//        return new EditCommand(index, editPersonDescriptor);
-//  }
 
 }
