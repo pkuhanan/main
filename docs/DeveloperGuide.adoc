@@ -819,6 +819,17 @@ This is important to the product as it aims to be quick and efficient. Shortcuts
 ** *Minor Enhancement*: modifying the select command to automatically search for a nearby atm when a contact is loaded.
 This aims to help the user find ways to settle his finances quickly and efficiently.
 
+* *Eric Zhou*
+** *Major Enhancement*: incorporating various listing features which will can filter the list to list out people who owe you a negative amount or a positive amount.
+This is essential to the product as a user will be able to quickly see who owes them money or who they owe money to.
+The ability to quickly filter out the list important because in big lists, it might not be the easiest to see what each person owes. With the feature, it increases efficiency for large addressbooks.
+
+** *Minor Enhancement*: added negative value allowance for balance to allow people to see the total amount they owe or need to be paid.
+This is important to the product as people will not always just owe money, sometimes people might need to pay the user, this feature allows that to be accounted for.
+
+** *Minor Enhancement*: case insensitivty of commands.
+This aims to help add ease to the user because the user will not need to type commands in specific way so Add and add will both add a new person.
+
 * *Chen Chongsong*
 ** *Major Enhancement*: implementing a SortCommand to sort contact list according to balance, name, etc.
 If name sorted, the user would be able to search for certain person quickly and alphebatically. This is useful because sometimes the user cannot remember the exact names, and therefore, fail to search names with the FindCommand.
@@ -826,6 +837,7 @@ If balance sorted, the user would be enabled to decide the order of returning mo
 
 ** *Minor Enhancement*: created a new command to delete specified tags (RemoveTagCommand).
 This is important to the product, especially when the user wants to delete only one tag from a contact person who has many tags. Perviously, when using EditCommand to remove tags, the user needs to input all remaining tags. RemoveTagCommand, however, can be used by inputing the few tags that the user wants to delete. That improves efficiency to a great extent.
+
 
 [appendix]
 == User Stories
