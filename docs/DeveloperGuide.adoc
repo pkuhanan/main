@@ -819,6 +819,14 @@ This is important to the product as it aims to be quick and efficient. Shortcuts
 ** *Minor Enhancement*: modifying the select command to automatically search for a nearby atm when a contact is loaded.
 This aims to help the user find ways to settle his finances quickly and efficiently.
 
+* *Chen Chongsong*
+** *Major Enhancement*: implementing a SortCommand to sort contact list according to balance, name, etc.
+If name sorted, the user would be able to search for certain person quickly and alphebatically. This is useful because sometimes the user cannot remember the exact names, and therefore, fail to search names with the FindCommand.
+If balance sorted, the user would be enabled to decide the order of returning money in the future. For example, the user can choose to firstly return money to "small creditors" (because the user owes little money to them, and he can pay them off easily)
+
+** *Minor Enhancement*: created a new command to delete specified tags (RemoveTagCommand).
+This is important to the product, especially when the user wants to delete only one tag from a contact person who has many tags. Perviously, when using EditCommand to remove tags, the user needs to input all remaining tags. RemoveTagCommand, however, can be used by inputing the few tags that the user wants to delete. That improves efficiency to a great extent.
+
 [appendix]
 == User Stories
 
