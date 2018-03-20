@@ -358,6 +358,71 @@ image::UndoRedoActivityDiagram.png[width="650"]
 ** Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two * different things.
 // end::undoredo[]
 
+// tag::balancefeature[]
+=== Balance Feature
+The balance feature is implemented by the `BalanceCommand` class, which resides in the `Logic` component.
+It extends the Command class and is not an undoable or re-doable command, similar to `list`. The balance command relies on
+the incorporation of the [MONEY] field, which stores the amount that a specific contact owes to the user,
+or the amount the user owes to the said contact if the balance is negative.
+
+The following class diagram shows shows where where the BalanceCommand is implemented.
+
+image::BalanceCommand - Class Diagram.png[width="800"]
+
+Commands that cannot be undone such as BalanceCommand are implemented like this:
+
+[source,java]
+----
+public class ListCommand extends Command {
+    @Override
+    public CommandResult execute() {
+        // ... list logic ...
+    }
+}
+----
+
+The following sequence diagram shows how the `balance` command works.
+
+image::BalanceCommandSequenceDiagram.png[width="800"]
+
+Suppose that the user just launched the application. The TravelBanker will load his contacts and the amount of money owed by/to each
+will be shown to the screen. The user simply types `balance` or `b`, which will be interpreted by the TravelBook Parser.
+Once the command is parsed, it will return a new `BalanceCommand`, which `LogicManager` will call `command`. `LogicManager` will
+then call the execute() function on command. This method calls on `getBalancefromTravelBanker` gets a `Persons` list through `model`,
+and thus gets to manipulate the values in the `m/[MONEY]` field of the current accounting book. It then adds all of them
+and displays to the feedback to the user by returning a `CommandResult` with the found data as argument.
+
+The following activity diagram summarizes the execution of the `balance` command.
+
+image::BalanceCommandActivityDiagram.png[width="800"]
+
+==== Design Considerations
+
+===== Aspect: Making balance not an undoable or re-doable command.
+
+* **Alternative 1 (current choice)**: Make `balance` not an undoable command**.
+
+* **Pros**: There was no need to make balance a re-doable or undoable command since it serves a purpose similar to `list`:
+it only displays information found in TravelBanker, but does not alter it. Thus, the user will not have any issues with this
+command should he make a mistake: it does not write any data.
+
+* ** Cons**: No significant disadvantage.
+
+* **Alternative 2: make `balance` an undoable command.**
+* **Pros**: No serious advantage, as explained in Alternative 1. Since the command does not aim to modify data,
+this method is not applicable.
+* **Cons**:  Extra layer of complexity that does not give any significant benefit
+
+===== Aspect: How balance command result is displayed.
+* **Alternative 1 (current choice)** : Pass the result as a string in the feedback to user.
+* **Pros** : Easy to implement and serves the purpose perfectly.
+* **Cons** : Value cannot be singled out to apply UI effects, such as colors.
+
+* **Alternative 2 ** : Single out result to make it modifiable by UI.
+* **Pros**: Allow for more pleasant user experience.
+* **Cons**: More difficult to implement and not much value added.
+// end::balancefeature[]
+
 // tag::dataencryption[]
 === [Proposed] Data Encryption
 
@@ -478,7 +543,6 @@ The changes in the UI were minor, and simply added the money field to the `Perso
 ----
 
 // end::moneyfield[]
-
 === Logging
 
 We are using `java.util.logging` package for logging. The `LogsCenter` class is used to manage the logging levels and logging destinations.
@@ -612,6 +676,7 @@ a. Include those libraries in the repo (this bloats the repo size) +
 b. Require developers to download those libraries manually (this creates extra work for developers)
 
 [[GetStartedProgramming]]
+
 [appendix]
 == Suggested Programming Tasks to Get Started
 
@@ -920,7 +985,7 @@ as seen in traditional book-keeping methods.
 == Feature Contribution
 
 * *Artsiom Skliar*
-** *Major Enhancement*: incorporating balance, min, and max command, which calculates your overall balance as registered in TravelBanker.
+** *Major Enhancement*: incorporating balance and min commands, which calculates your overall balance as registered in TravelBanker.
 This value will tell the user if he owes more money than he's borrowed or vice-versa. This is essential to the product as
 TravelBanker relies on the need of the user to keep track of his informal finances efficiently and accurately.
 The ability to see view your overall balance is thus necessary as it provides insight to the user on his general
@@ -1101,8 +1166,8 @@ Author: ...
 
 Pros:
 
-* ...
-* ...
+*  ...
+*  ...
 
 Cons:
 
