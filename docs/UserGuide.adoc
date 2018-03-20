@@ -256,7 +256,13 @@ Format: `exit`
 TravelBanker data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
-=== Checking overall balance: `balance` or `b`
+// tag::dataencryption[]
+=== Encrypting data files `[coming in v2.0]`
+
+_{explain how the user can enable/disable data encryption}_
+// end::dataencryption[]
+
+=== Checking overall balance: `balance` or `b` [Since v1.2]
 
 Calculates your total balance. +
 Format: `balance` or `b`
@@ -266,22 +272,22 @@ Format: `balance` or `b`
 Lists the contact which owes you the most money. +
 Format: `max`
 
-=== Seeing which contact owes you the least: `min` or `mi`
+=== Seeing which contact owes you the least: `min` or `mi`[Since v1.2]
 
 Lists the contact to which you owe the most money. +
 Format: `min`
 
-=== Seeing all the contacts that owe you money: `lent` or `le`
+=== Seeing all the contacts that owe you money: `lent` or `le` [Coming in v2.0]
 
 Lists all the contacts that owe you an amount.
 Format: `lent` or `le`
 
-=== Seeing all the contacts that owe you money: `debt` or `de`
+=== Seeing all the contacts that owe you money: `debt` or `de` [Coming in v2.0]
 
 Lists all the contacts that owe you an amount.
 Format: `debt` or `de`
 
-=== Applies an interest rate to your balance: `interest FACTOR` or `i FACTOR`
+=== Applies an interest rate to your balance: `interest FACTOR` or `i FACTOR` [Coming in v2.0]
 
 Displays your balance with an applied interest rate.
 Format: `interest FACTOR` or `i FACTOR`
@@ -297,6 +303,12 @@ Format: `balance c/[CURRENCY]` or `b c/[CURRENCY]`
 Lists the description consisting of keywords that explain why someone owes you an amount.
 This facilitates understanding of the debt.
 Format: `describe INDEX`
+
+=== Shows on which trip a balance was established from user and contact : `trip [DESTINATION]` or `t` [Coming in v2.0]
+
+Each contact will have a [DESTINATION] field to keep track of where a transaction between the
+user and the contact took place.
+Format: `trip [DESTIONATION]`
 
 =======
 
@@ -331,4 +343,5 @@ e.g.`select 2`
 e.g. `describe 3`
 * *Currency* : `currency c/`
 e.g. `currency c/USD`
+* *Trip* : `trip [DESTINATION]` or `t [DESTINATION]`
 
