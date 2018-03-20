@@ -28,7 +28,6 @@ public class SortCommandParser implements Parser<SortCommand> {
         try {
             String sortKey = ParserUtil.parseSortKey(args);
             String sortOrder = ParserUtil.parseSortOrder(args); // either "asc" or "desc"
-            index = ParserUtil.parseIndex(argMultimap.getPreamble());
             return new SortCommand(sortKey, sortOrder);
         } catch (IllegalValueException ive) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
