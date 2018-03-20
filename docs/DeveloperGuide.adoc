@@ -838,6 +838,12 @@ If balance sorted, the user would be enabled to decide the order of returning mo
 ** *Minor Enhancement*: created a new command to delete specified tags (RemoveTagCommand).
 This is important to the product, especially when the user wants to delete only one tag from a contact person who has many tags. Perviously, when using EditCommand to remove tags, the user needs to input all remaining tags. RemoveTagCommand, however, can be used by inputing the few tags that the user wants to delete. That improves efficiency to a great extent.
 
+* *Prian Kuhanandan*
+** *Major Enhancement*: Implementing the money field, and allowing for existing commands to use the field such as the add and edit commands.
+This is important because this allows for all the money related features that are essential to our use cases, such as the balance feature.
+
+** *Minor Enhancement*: Create some helpful UI and UX improvements, such as color coded money figures depending on debt vs owing.
+This is important to the product, because we would like to make sure that our users are able to quickly and efficiently interpret the information in our product. If our product was not pleasant to use, our users abandon the product altogether, or turn to other alternatives.
 
 [appendix]
 == User Stories
