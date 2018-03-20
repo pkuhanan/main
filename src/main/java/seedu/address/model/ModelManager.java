@@ -99,8 +99,8 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public void sortUniquePersonList() {
-        addressBook.sortPersons();
+    public void sortUniquePersonList(String sortKey, String sortOrder) {
+        addressBook.sortPersons(sortKey, sortOrder);
     }
 
     @Override

@@ -190,7 +190,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         return Objects.hash(persons, tags);
     }
 
-    public void sortPersons() {
-        persons.sortPersons();
+    public void sortPersons(String sortKey, String sortOrder) {
+        persons.sortPersons(sortKey, sortOrder);
     }
 }

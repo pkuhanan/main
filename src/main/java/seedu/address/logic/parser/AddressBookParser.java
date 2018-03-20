@@ -139,6 +139,12 @@ public class AddressBookParser {
         case MaxCommand.COMMAND_SHORTCUT:
             return new MaxCommand();
 
+        case SortCommand.COMMAND_WORD:
+            return new SortCommandParser().parse(arguments);
+
+        case SortCommand.COMMAND_SHORTCUT:
+            return new SortCommandParser().parse(arguments);
+
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }

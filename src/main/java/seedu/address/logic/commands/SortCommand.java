@@ -20,9 +20,13 @@ public class SortCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Sorted all persons";
 
+    public final String sortKey;
+    public final String sortOrder;
 
-    public SortCommand(String sortKey, String order) {
 
+    public SortCommand(String key, String order) {
+        this.sortKey = key;
+        this.sortOrder = order;
     }
 
 //    public SortCommand(NameContainsKeywordsPredicate predicate) {
@@ -31,7 +35,7 @@ public class SortCommand extends Command {
 
     @Override
     public CommandResult execute() {
-        model.sortUniquePersonList();
+        model.sortUniquePersonList(sortKey, sortOrder);
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

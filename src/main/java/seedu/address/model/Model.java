@@ -49,5 +49,5 @@ public interface Model {
      * Sorts the person list by a given keyword {}
      * The person list would be sorted ascendingly or descendingly, depending on {}
      */
-    void sortUniquePersonList();
+    void sortUniquePersonList(String sortKey, String sortOrder);
 }
