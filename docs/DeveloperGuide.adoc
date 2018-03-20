@@ -374,11 +374,13 @@ The implementation of the money field spanned four components: Model, Logic, Sto
 
 ===== Model
 
-In terms of the Model component, a new Money model was created and the Person and Addressbook models required modifications to integrate the new Money model.
+In terms of the Model component, a new Money model was created and the Person and Addressbook models required modifications to integrate the new Money model. The Money model was written to be consistent with the existing Person attribute models like "Email" and "Phone".
 
-The Money model was written to be consistent with the existing Person attribute models like "Email" and "Phone". 
+A class diagram of the models can be seen below:
 
-The most important part of the Money model is the constructor: 
+image::MoneyClassDiagram.png[width="800"]
+
+The most important part of the Money model is the constructor:
 
 [source,java]
 ----
@@ -392,7 +394,7 @@ public Money(String balance) {
 
 The constructor was implemented using two properties: `Double balance` and `String value`
 This is because the money value is often used as a string for display and as a double for calculations and comparisons.
-The trade-off here was to either store it as just a Double or a String, and cast the value into the right type when needed, or store the value as both a Double and a String. 
+The trade-off here was to either store it as just a Double or a String, and cast the value into the right type when needed, or store the value as both a Double and a String.
 The first option forgoes time performance to provide better space performance and keep one single source of truth for each Money object. The second option however provides better time performance, but falls short on space and source of truth data integrity.
 Our team decided to take the second option as data integrity issues can be mitigated through comprehensive testing, and because time performance is more important than space complexity at this point time.
 
@@ -407,7 +409,7 @@ public static boolean isValidMoney(String test) {
 }
 ----
 
-The `equals` function is mostly used for testing, and provides a way to check if two Money objects have equal values. 
+The `equals` function is mostly used for testing, and provides a way to check if two Money objects have equal values.
 The function makes sure that the objects are of the same type, and share the same `value` property:
 
 [source,java]
@@ -445,7 +447,7 @@ This implementation was chosen as to stay consistent with the rest of the existi
 
 ===== Storage
 
-Storage was also changed in the development of this feature, as a new parameter had to be stored and parsed using the xml storage system. 
+Storage was also changed in the development of this feature, as a new parameter had to be stored and parsed using the xml storage system.
 
 The logic for parsing the stored data is very similar to the parsing logic for user input:
 
