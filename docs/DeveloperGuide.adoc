@@ -842,8 +842,8 @@ This is important to the product, especially when the user wants to delete only 
 ** *Major Enhancement*: Implementing the money field, and allowing for existing commands to use the field such as the add and edit commands.
 This is important because this allows for all the money related features that are essential to our use cases, such as the balance feature.
 
-** *Minor Enhancement*: Create some helpful UI and UX improvements, such as color coded money figures depending on debt vs owing.
-This is important to the product, because we would like to make sure that our users are able to quickly and efficiently interpret the information in our product. If our product was not pleasant to use, our users abandon the product altogether, or turn to other alternatives.
+** *Minor Enhancement*: Create a new command to identify the person that owes the user the most money.
+This is important to the product, because the user needs easy ways to interact with the money field that we have added. This is one minor way to use the field and will provide the user with a lot of value as it will help with locating his or her biggest debtor.
 
 [appendix]
 == User Stories
