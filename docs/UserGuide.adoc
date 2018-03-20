@@ -261,7 +261,7 @@ There is no need to save manually.
 Calculates your total balance. +
 Format: `balance` or `b`
 
-=== Seeing which contact owes you the most: `max` or `m`
+=== Seeing which contact owes you the most: `max` or `mx` [Since v1.2]
 
 Lists the contact which owes you the most money. +
 Format: `max`
