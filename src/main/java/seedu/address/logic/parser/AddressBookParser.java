@@ -125,12 +125,6 @@ public class AddressBookParser {
         case RemoveTagCommand.COMMAND_SHORTCUT:
             return new RemoveTagCommandParser().parse(arguments);
 
-        case SortCommand.COMMAND_WORD:
-            return new SortCommandParser().parse(arguments);
-
-        case SortCommand.COMMAND_SHORTCUT:
-            return new SortCommandParser().parse(arguments);
-
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
