@@ -4,14 +4,14 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Person's Money Balance in the address book.
+ * Represents a Person's Money Balance in the TravelBanker.
  * Guarantees: immutable; is valid as declared in {@link #isValidMoney(String)}
  */
 public class Money {
     public static final String MESSAGE_MONEY_CONSTRAINTS = "Money values should be numbers";
     public static final String MONEY_VALIDATION_REGEX = "-?\\d+(\\.\\d+)?";
 
-    public final Double balance;
+    public final double balance;
     public final String value;
 
     /**
@@ -29,6 +29,10 @@ public class Money {
     @Override
     public String toString() {
         return value;
+    }
+
+    public Double toDouble() {
+        return balance;
     }
 
     /**
@@ -61,5 +65,8 @@ public class Money {
                 && this.value.equals(((Money) other).value)); // state check
     }
 
+    public int compareTo(Money other) {
+        return toDouble().compareTo(other.toDouble());
+    }
 
 }

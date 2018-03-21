@@ -1,8 +1,5 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
-
 /**
  * Sort all persons in address book in order.
  * Keywords will be given by user through arguments.
@@ -13,24 +10,28 @@ public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
     public static final String COMMAND_SHORTCUT = "so";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose names contain any of "
-            + "the specified keywords (case-sensitive) and displays them as a list with index numbers.\n"
-            + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + " alice bob charlie";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sorts all persons in ascendingly or descendingly, "
+            + "ordering by the specified keywords.\n"
+            + "Parameters: KEYWORD_PREFIX+ORDER ...\n"
+            + "Example1: " + COMMAND_WORD + " n/desc\n"
+            + "Example2: " + COMMAND_WORD + " m/asc";
 
     public static final String MESSAGE_SUCCESS = "Sorted all persons";
 
-    // private final NameContainsKeywordsPredicate predicate;
+    public static final String SORT_ORDER_ASCENDING = "asc";
+    public static final String SORT_ORDER_DESCENDING = "desc";
 
-    public SortCommand() {}
+    public final String sortKey;
+    public final String sortOrder;
 
-//    public SortCommand(NameContainsKeywordsPredicate predicate) {
-//        this.predicate = predicate;
-//    }
+    public SortCommand(String key, String order) {
+        this.sortKey = key;
+        this.sortOrder = order;
+    }
 
     @Override
     public CommandResult execute() {
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        model.sortUniquePersonList(sortKey, sortOrder);
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }
