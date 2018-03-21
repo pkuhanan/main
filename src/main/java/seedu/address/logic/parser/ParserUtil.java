@@ -1,7 +1,14 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.commands.SortCommand.SORT_ORDER_ASCENDING;
+import static seedu.address.logic.commands.SortCommand.SORT_ORDER_DESCENDING;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MONEY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -76,7 +83,10 @@ public class ParserUtil {
     public static String parseSortOrder(String args) throws IllegalValueException {
         String[] splittedArgs = args.trim().split("/");
         String sortKey = splittedArgs[1];
-        if (splittedArgs.length != 2 || (!sortKey.equals("asc") && !sortKey.equals("desc"))) {
+        if (splittedArgs.length != 2) {
+            throw new IllegalValueException(MESSAGE_INVALID_ARGS);
+        }
+        if ((!sortKey.equals(SORT_ORDER_ASCENDING) && !sortKey.equals(SORT_ORDER_DESCENDING))) {
             throw new IllegalValueException(MESSAGE_INVALID_ARGS);
         }
         return sortKey;

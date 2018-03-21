@@ -18,6 +18,9 @@ public class SortCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Sorted all persons";
 
+    public static final String SORT_ORDER_ASCENDING = "asc";
+    public static final String SORT_ORDER_DESCENDING = "desc";
+
     public final String sortKey;
     public final String sortOrder;
 

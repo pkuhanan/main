@@ -121,14 +121,7 @@ public class UniquePersonList implements Iterable<Person> {
      * Sorts {@code internalList} by keyword ascendingly or descendingly
      */
     public void sortPersons(String sortKey, String sortOrder) {
-        System.out.println(sortKey);
-        System.out.println(sortOrder);
-        // sortOder assert()
-        // static string for "asc" and "desc"
-
         Comparator<Person> comparator = Person.createComparator(sortKey, sortOrder);
-
-
         internalList.sort(comparator);
     }
 
