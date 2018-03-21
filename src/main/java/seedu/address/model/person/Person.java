@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MONEY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -133,6 +134,8 @@ public class Person {
             comparator = (person1, person2) -> +person1.getAddress().compareTo(person2.getAddress());
         } else if (sortKey.equals(PREFIX_MONEY.getPrefix())) {
             comparator = (person1, person2) -> +person1.getMoney().compareTo(person2.getMoney());
+        } else if (sortKey.equals(PREFIX_TAG.getPrefix())) {
+            comparator = (person1, person2) -> +Integer.compare(person1.getTags().size(), person2.getTags().size());
         } else {
             // sort name by default
             comparator = (person1, person2) -> +person1.getName().toString()
