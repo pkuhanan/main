@@ -1,8 +1,14 @@
 package seedu.address.model.person;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MONEY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.Set;
 
@@ -105,6 +111,42 @@ public class Person {
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
+    }
+
+    /**
+     * Create comparator for sorting person list
+     * @param sortKey
+     * @param sortOrder
+     * @return
+     */
+    public static Comparator<Person> createComparator(String sortKey, String sortOrder) {
+        // assert
+        Comparator<Person> comparator;
+        if (sortKey.equals(PREFIX_NAME.getPrefix())) {
+            comparator = (person1, person2) -> +person1.getName().toString()
+                    .compareToIgnoreCase(person2.getName().toString());
+        } else if (sortKey.equals(PREFIX_PHONE.getPrefix())) {
+            comparator = (person1, person2) -> +person1.getPhone().toString()
+                    .compareToIgnoreCase(person2.getPhone().toString());
+        } else if (sortKey.equals(PREFIX_EMAIL.getPrefix())) {
+            comparator = (person1, person2) -> +person1.getEmail().toString()
+                    .compareToIgnoreCase(person2.getEmail().toString());
+        } else if (sortKey.equals(PREFIX_ADDRESS.getPrefix())) {
+            comparator = (person1, person2) -> +person1.getAddress().toString()
+                    .compareToIgnoreCase(person2.getAddress().toString());
+        } else if (sortKey.equals(PREFIX_MONEY.getPrefix())) {
+            comparator = (person1, person2) -> +person1.getMoney().toString()
+                    .compareToIgnoreCase(person2.getMoney().toString());
+        } else {
+            // sort name by default
+            comparator = (person1, person2) -> +person1.getName().toString()
+                    .compareToIgnoreCase(person2.getName().toString());
+        }
+
+        if (sortOrder.equals("desc")) {
+            comparator = comparator.reversed();
+        }
+        return comparator;
     }
 
 }

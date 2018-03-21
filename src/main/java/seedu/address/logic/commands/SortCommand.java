@@ -1,7 +1,5 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
-
 /**
  * Sort all persons in address book in order.
  * Keywords will be given by user through arguments.
@@ -23,15 +21,10 @@ public class SortCommand extends Command {
     public final String sortKey;
     public final String sortOrder;
 
-
     public SortCommand(String key, String order) {
         this.sortKey = key;
         this.sortOrder = order;
     }
-
-//    public SortCommand(NameContainsKeywordsPredicate predicate) {
-//        this.predicate = predicate;
-//    }
 
     @Override
     public CommandResult execute() {
