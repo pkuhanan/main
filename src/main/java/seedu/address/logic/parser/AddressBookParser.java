@@ -19,6 +19,7 @@ import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListNegativeBalanceCommand;
 import seedu.address.logic.commands.ListPositiveBalanceCommand;
+import seedu.address.logic.commands.MapCommand;
 import seedu.address.logic.commands.MaxCommand;
 import seedu.address.logic.commands.MinCommand;
 import seedu.address.logic.commands.RedoCommand;
@@ -26,8 +27,9 @@ import seedu.address.logic.commands.RemoveTagCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SettleCommand;
 import seedu.address.logic.commands.SortCommand;
+import seedu.address.logic.commands.SplitCommand;
 import seedu.address.logic.commands.UndoCommand;
-
+import seedu.address.logic.commands.WipeBalancesCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -86,6 +88,12 @@ public class AddressBookParser {
 
         case ClearCommand.COMMAND_SHORTCUT:
             return new ClearCommand();
+
+        case WipeBalancesCommand.COMMAND_WORD:
+            return new WipeBalancesCommand();
+
+        case WipeBalancesCommand.COMMAND_SHORTCUT:
+            return new WipeBalancesCommand();
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
@@ -168,11 +176,22 @@ public class AddressBookParser {
         case SettleCommand.COMMAND_SHORTCUT:
             return new SettleCommandParser().parse(arguments);
 
+        case SplitCommand.COMMAND_WORD:
+            return new SplitCommandParser().parse(arguments);
+
+        case SplitCommand.COMMAND_SHORTCUT:
+            return new SplitCommandParser().parse(arguments);
+
         case SortCommand.COMMAND_WORD:
             return new SortCommandParser().parse(arguments);
 
         case SortCommand.COMMAND_SHORTCUT:
             return new SortCommandParser().parse(arguments);
+
+        case MapCommand.COMMAND_WORD:
+            return new MapCommand();
+        case MapCommand.COMMAND_SHORTCUT:
+            return new MapCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
