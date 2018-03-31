@@ -11,9 +11,12 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.address.model.item.Item;
+import seedu.address.model.item.UniqueItemList;
 import seedu.address.model.money.Money;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
@@ -31,6 +34,7 @@ public class Person {
     private Money money;
 
     private final UniqueTagList tags;
+    private final UniqueItemList items;
 
     /**
      * Every field must be present and not null.
@@ -44,6 +48,23 @@ public class Person {
         this.money = balance;
         // protect internal tags from changes in the arg list
         this.tags = new UniqueTagList(tags);
+        this.items = new UniqueItemList(new HashSet<>()); // initialize as empty set
+    }
+
+    /**
+     * Every field must be present and not null.
+     * @param items must be provided
+     */
+    public Person(Name name, Phone phone, Email email, Address address, Money balance, Set<Tag> tags, Set<Item>items) {
+        requireAllNonNull(name, phone, email, address, tags, items);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.money = balance;
+        // protect internal tags from changes in the arg list
+        this.tags = new UniqueTagList(tags);
+        this.items = new UniqueItemList(items);
     }
 
     public Name getName() {
@@ -67,7 +88,8 @@ public class Person {
     }
 
     public void setMoney(Money money) {
-        this.money = money; }
+        this.money = money;
+    }
 
 
     /**
@@ -76,6 +98,14 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags.toSet());
+    }
+
+    public Set<Item> getItems() {
+        return Collections.unmodifiableSet(items.toSet());
+    }
+
+    public UniqueItemList getUniqueItemList() {
+        return items;
     }
 
     @Override
@@ -99,7 +129,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, money, tags);
+        return Objects.hash(name, phone, email, address, money, tags, items);
     }
 
     @Override
