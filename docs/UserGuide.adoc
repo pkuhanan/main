@@ -311,6 +311,26 @@ Examples:
 * `sp 1 2 3 m/400.00`
 
 
+=== Showing items related to a person : `itemshow` or `is`
+
+Show all items related to a person (specified by INDEX). +
+Format: `itemshow INDEX` or `is INDEX`
+
+****
+* The index refers to the index number shown in the most recent listing.
+* The index *must be a positive integer* `1, 2, 3, ...`
+****
+
+Examples:
+
+* `list` +
+`itemshow 2` +
+Shows items related to the 2nd person in the accounting book.
+* `find Betsy` +
+`itemshow 1` +
+Shows item related to the 1st person in the results of the `find` command.
+
+
 === Settling up your balance with a contact: `settle` or `stl`[Since v1.3]
 
 Sets the balance of the specified contact to 0. +
@@ -391,6 +411,7 @@ e.g.`select 2`
 * *RemoveTag* : `removetag INDEX [t/TAG]...`
 * *Sort* : `sort KEYWORD_PREFIX/ORDER`
 * *Split* : `split INDEX1 [INDEX2...] m/MONEY`
+* *ItemShow* : `itemshow INDEX`
 * *Max* : `max`
 * *Min* : `min`
 * *Describe* : `describe INDEX`
