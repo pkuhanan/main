@@ -51,6 +51,7 @@ public class Person {
         this.items = new UniqueItemList(new ArrayList<>()); // initialize as empty set
     }
 
+    //@@author chenchongsong
     /**
      * Every field must be present and not null.
      * @param items must be provided
@@ -67,6 +68,7 @@ public class Person {
         this.tags = new UniqueTagList(tags);
         this.items = new UniqueItemList(items);
     }
+    //@@author
 
     public Name getName() {
         return name;
@@ -154,6 +156,7 @@ public class Person {
         return builder.toString();
     }
 
+    //@@author chenchongsong
     /**
      * Create comparator for sorting person list
      * @param sortKey
@@ -186,5 +189,6 @@ public class Person {
         }
         return comparator;
     }
+    //@@author
 
 }

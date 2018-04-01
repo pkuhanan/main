@@ -68,13 +68,15 @@ public class PersonBuilder {
         return this;
     }
 
+    //@@author chenchongsong
     /**
-     * Set a empty set {@code Set<Tag>} and set it to the {@code Person} that we are building.
+     * Set an empty set {@code Set<Tag>} and set it to the {@code Person} that we are building.
      */
     public PersonBuilder withoutTags() {
         this.tags = SampleDataUtil.getTagSet();
         return this;
     }
+    //@@author
 
     /**
      * Sets the {@code Address} of the {@code Person} that we are building.

@@ -173,6 +173,7 @@ public class AddressBookParser {
         case SettleCommand.COMMAND_SHORTCUT:
             return new SettleCommandParser().parse(arguments);
 
+        //@@author chenchongsong
         case RemoveTagCommand.COMMAND_WORD:
             return new RemoveTagCommandParser().parse(arguments);
 
@@ -202,6 +203,7 @@ public class AddressBookParser {
 
         case ItemAddCommand.COMMAND_SHORTCUT:
             return new ItemAddCommandParser().parse(arguments);
+        //@@author
 
         case MapCommand.COMMAND_WORD:
             return new MapCommand();

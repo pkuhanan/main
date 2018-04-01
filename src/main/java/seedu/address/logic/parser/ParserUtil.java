@@ -55,6 +55,7 @@ public class ParserUtil {
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
     }
 
+    //@@author chenchongsong
     /**
      * Parses {@code oneBasedIndices} into an ArrayList of {@code Index} and returns it.
      * Leading and trailing whitespaces will be trimmed.
@@ -110,6 +111,7 @@ public class ParserUtil {
         }
         return sortKey;
     }
+    //@@author
 
     /**
      * Parses a {@code String name} into a {@code Name}.
