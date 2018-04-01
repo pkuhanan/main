@@ -16,6 +16,7 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
+import seedu.address.logic.commands.ItemAddCommand;
 import seedu.address.logic.commands.ItemShowCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListNegativeBalanceCommand;
@@ -24,6 +25,7 @@ import seedu.address.logic.commands.MapCommand;
 import seedu.address.logic.commands.MaxCommand;
 import seedu.address.logic.commands.MinCommand;
 import seedu.address.logic.commands.RedoCommand;
+import seedu.address.logic.commands.RemindCommand;
 import seedu.address.logic.commands.RemoveTagCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SettleCommand;
@@ -147,12 +149,6 @@ public class AddressBookParser {
         case RedoCommand.COMMAND_SHORTCUT:
             return new RedoCommand();
 
-        case RemoveTagCommand.COMMAND_WORD:
-            return new RemoveTagCommandParser().parse(arguments);
-
-        case RemoveTagCommand.COMMAND_SHORTCUT:
-            return new RemoveTagCommandParser().parse(arguments);
-
         case BalanceCommand.COMMAND_SHORTCUT:
             return new BalanceCommand();
 
@@ -177,6 +173,12 @@ public class AddressBookParser {
         case SettleCommand.COMMAND_SHORTCUT:
             return new SettleCommandParser().parse(arguments);
 
+        case RemoveTagCommand.COMMAND_WORD:
+            return new RemoveTagCommandParser().parse(arguments);
+
+        case RemoveTagCommand.COMMAND_SHORTCUT:
+            return new RemoveTagCommandParser().parse(arguments);
+
         case SplitCommand.COMMAND_WORD:
             return new SplitCommandParser().parse(arguments);
 
@@ -195,10 +197,23 @@ public class AddressBookParser {
         case ItemShowCommand.COMMAND_SHORTCUT:
             return new ItemShowCommandParser().parse(arguments);
 
+        case ItemAddCommand.COMMAND_WORD:
+            return new ItemAddCommandParser().parse(arguments);
+
+        case ItemAddCommand.COMMAND_SHORTCUT:
+            return new ItemAddCommandParser().parse(arguments);
+
         case MapCommand.COMMAND_WORD:
             return new MapCommand();
         case MapCommand.COMMAND_SHORTCUT:
             return new MapCommand();
+
+        //@@author pkuhanan
+        case RemindCommand.COMMAND_WORD:
+            return new RemindCommandParser().parse(arguments);
+        case RemindCommand.COMMAND_SHORTCUT:
+            return new RemindCommandParser().parse(arguments);
+        //@@author
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
