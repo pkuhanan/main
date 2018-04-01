@@ -9,7 +9,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Money {
     public static final String MESSAGE_MONEY_CONSTRAINTS = "Money values should be numbers";
-    public static final String MONEY_VALIDATION_REGEX = "-?\\d+(\\.\\d+)?";
+    public static final String MONEY_VALIDATION_REGEX = "-?\\d+(\\.\\d+)?(E-?\\d+)?";
 
     public final double balance;
     public final String value;
