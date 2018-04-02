@@ -305,7 +305,7 @@ Examples:
 * `split 1 2 m/200`
 * `sp 1 2 3 m/400.00`
 
-=== Clear up everyone's balance: `wipe` or `w' [Since v1.3]
+=== Clear up everyone's balance: `wipe` or `w` [Since v1.3]
 
 Wipes everyone's balances to 0.0 +
 Format: `wipe` +
@@ -345,6 +345,9 @@ Format: `remind INDEX`
 
 Converts an entries certain balance in a currency of your choice.
 Format: `convert/cv INDEX FROM_CURRENCY TO_CURRENCY`
+
+Example: `convert 2 USD JPY`
+Example: `convert 1 SGD USD`
 
 === Seeing all the contacts that owe you money: `lent` or `le` [Coming in v2.0]
 
