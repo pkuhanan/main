@@ -251,11 +251,6 @@ TravelBanker data are saved in the hard disk automatically after any command tha
 There is no need to save manually.
 
 // tag::dataencryption[]
-=== Encrypting data files `[coming in v2.0]`
-
-_{explain how the user can enable/disable data encryption}_
-// end::dataencryption[]
-
 
 === Checking overall balance: `balance` or `b` [Since v1.2]
 
@@ -310,6 +305,11 @@ Examples:
 * `split 1 2 m/200`
 * `sp 1 2 3 m/400.00`
 
+=== Clear up everyone's balance: `wipe` or `w' [Since v1.3]
+
+Wipes everyone's balances to 0.0 +
+Format: `wipe` +
+Format: `w`
 
 === Showing items related to a person : `itemshow` or `is`
 
@@ -341,6 +341,11 @@ Format: `settle INDEX`
 Opens the default email client with a generated email to the contact with the balance in the message.
 Format: `remind INDEX`
 
+=== Converts your balance in a desired currency: `convert` or `cv` [Coming in v2.0]`
+
+Converts an entries certain balance in a currency of your choice.
+Format: `convert/cv INDEX FROM_CURRENCY TO_CURRENCY`
+
 === Seeing all the contacts that owe you money: `lent` or `le` [Coming in v2.0]
 
 Lists all the contacts that owe you an amount.
@@ -352,6 +357,10 @@ Format: `lent` or `le`
 Lists all the contacts that owe you an amount.
 Format: `debt` or `de`
 
+=== Encrypting data files `[coming in v2.0]`
+
+_{explain how the user can enable/disable data encryption}_
+// end::dataencryption[]
 
 === Applies an interest rate to your balance: `interest FACTOR` or `i FACTOR` [Coming in v2.0]
 
@@ -364,13 +373,6 @@ Format: `interest FACTOR` or `i FACTOR`
 Finds the person that owes the user the most money.
 Improves the usability by adding a quick access function for a common use case.
 Format: `biggest-debtor INDEX`
-
-
-=== Converts your balance in a desired currency: `currency c/` or `cu c/` [Coming in v2.0]`
-
-Converts your total balance in a currency of your choice.
-Format: `balance c/[CURRENCY]` or `b c/[CURRENCY]`
-
 
 === Lists a description of the debts someone owes you: `describe` or `db` [Coming in v2.0]
 
