@@ -162,11 +162,13 @@ public class AddressBookParser {
         case BalanceCommand.COMMAND_WORD:
             return new BalanceCommand();
 
+        //@@author pkuhanan
         case MaxCommand.COMMAND_WORD:
             return new MaxCommand();
 
         case MaxCommand.COMMAND_SHORTCUT:
             return new MaxCommand();
+        //@@author
 
         case MinCommand.COMMAND_WORD:
             return new MinCommand();
@@ -174,11 +176,13 @@ public class AddressBookParser {
         case MinCommand.COMMAND_SHORTCUT:
             return new MinCommand();
 
+        //@@author pkuhanan
         case SettleCommand.COMMAND_WORD:
             return new SettleCommandParser().parse(arguments);
 
         case SettleCommand.COMMAND_SHORTCUT:
             return new SettleCommandParser().parse(arguments);
+        //@@author
 
         //@@author chenchongsong
         case RemoveTagCommand.COMMAND_WORD:

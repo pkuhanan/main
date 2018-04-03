@@ -101,7 +101,7 @@ public class PersonBuilder {
         this.email = new Email(email);
         return this;
     }
-
+    //@@author pkuhanan
     /**
      * Sets the {@code Money} of the {@code Person} that we are building.
      */
@@ -109,6 +109,7 @@ public class PersonBuilder {
         this.balance = new Money(balance);
         return this;
     }
+    //@@author
 
     public Person build() {
         return new Person(name, phone, email, address, balance, tags);
