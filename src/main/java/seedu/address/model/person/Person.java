@@ -84,14 +84,15 @@ public class Person {
         return address;
     }
 
+    //@@author pkuhanan
     public Money getMoney() {
         return money;
     }
+    //@@author
 
     public void setMoney(Money money) {
         this.money = money;
     }
-
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}

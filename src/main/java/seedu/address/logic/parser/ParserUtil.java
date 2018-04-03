@@ -207,6 +207,7 @@ public class ParserUtil {
         return email.isPresent() ? Optional.of(parseEmail(email.get())) : Optional.empty();
     }
 
+    //@@author pkuhanan
     /**
      * Parses a {@code String money} into an {@code Money}.
      * Leading and trailing whitespaces will be trimmed.
@@ -230,6 +231,7 @@ public class ParserUtil {
         requireNonNull(money);
         return money.isPresent() ? Optional.of(parseMoney(money.get())) : Optional.empty();
     }
+    //@@author
 
     /**
      * Parses a {@code String tag} into a {@code Tag}.

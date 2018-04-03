@@ -33,8 +33,10 @@ public class XmlAdaptedPerson {
     private String email;
     @XmlElement(required = true)
     private String address;
+    //@@author pkuhanan
     @XmlElement
     private String balance;
+    //@@author
 
     @XmlElement
     private List<XmlAdaptedTag> tagged = new ArrayList<>();
@@ -131,10 +133,12 @@ public class XmlAdaptedPerson {
         }
         final Address address = new Address(this.address);
 
+        //@@author pkuhanan
         if (!Money.isValidMoney(this.balance)) {
             throw new IllegalValueException(Money.MESSAGE_MONEY_CONSTRAINTS);
         }
         final Money balance = new Money(this.balance);
+        //@@author
 
         final Set<Tag> tags = new HashSet<>(personTags);
         final ArrayList<Item> items = new ArrayList<>(personItems);
