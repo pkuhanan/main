@@ -191,7 +191,9 @@ public class AddressBook implements ReadOnlyAddressBook {
         return Objects.hash(persons, tags);
     }
 
+    //@@author chenchongsong
     public void sortPersons(String sortKey, String sortOrder) {
         persons.sortPersons(sortKey, sortOrder);
     }
+    //@@author
 }

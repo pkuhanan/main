@@ -1,3 +1,4 @@
+//@@author chenchongsong
 package seedu.address.model.item;
 
 import static java.util.Objects.requireNonNull;
