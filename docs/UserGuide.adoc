@@ -261,7 +261,7 @@ Format: `debt` or `de`
 
 // end::debt[]
 
-// tag:lend[]
+// tag::lend[]
 === Seeing all the contacts to which you owe money: `lend` or `le` [Since v1.2]
 
 Lists all the contacts that owe you an amount.
@@ -420,6 +420,7 @@ Example: `convert 2 USD JPY`
 Example: `convert 1 SGD USD`
 
 // end::convert[]
+// tag::item[]
 === Delete an Existing Item : `itemdelete` or `id` [Since v1.5rc]
 
 Deleting an item from a specified person. +
