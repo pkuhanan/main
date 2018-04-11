@@ -17,6 +17,8 @@ This is a desktop application allowing people, particularly travellers, to keep 
 
 * *Major Enhancement*: Implemented currency conversion feature to allow people to quickly convert their currencies from one currency to another. Total balances can also be converted.
 ** What it does: The command allows users to convert specific entries' balances from one currency to another currency. This allows the user to convert to different currencies because it is not clear where the user will be located. The feature supports 170 currencies.
+** Credits:
+Used third-party currency converter library from github: https://github.com/Ritaja/java-exchange-rates
 
 * *Minor Enhancement*: Allow users to wipe all balances in their addressbook
 * *Minor Enhancement*: Show the all the people who owe the user money
