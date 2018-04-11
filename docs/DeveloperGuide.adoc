@@ -230,7 +230,7 @@ Classes used by multiple components are in the `seedu.TravelBanker.commons` pack
 
 This section describes some noteworthy details on how certain features are implemented.
 
-// tag::undoredo[]
+// tag::posneg[]
 === List Positive/Negative feature
 ==== Current Implementation
 
@@ -270,6 +270,8 @@ I can further refine the function to be much more powerful in filtering and list
 
 The function is a predicate function that checks to see if `a.getMoney().balance>=0` because the function `updateFilteredPersonList()` takes in a predicate parameter. In our function we see the predicate check to see if the person's money balance is positive and if so, it will be returned.
 
+//end::posneg[]
+//tag::undoredo[]
 === Undo/Redo feature
 ==== Current Implementation
 
