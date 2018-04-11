@@ -20,9 +20,7 @@ This is a desktop application allowing people, particularly travellers, to keep 
 ** Credits:
 Used third-party currency converter library from github: https://github.com/Ritaja/java-exchange-rates
 
-* *Minor Enhancement*: Allow users to wipe all balances in their addressbook
-* *Minor Enhancement*: Show the all the people who owe the user money
-* *Minor Enhancement*: Show the all the people who the user owes money to
+* *Minor Enhancements*: Allow users to wipe all balances in their addressbook, show the all the people who owe the user money, and all the people who the user owes money to
 
 * *Code contributed*: [https://github.com/CS2103JAN2018-T11-B4/main/blob/master/collated/functional/software-1234.md[Functional code]] [https://github.com/CS2103JAN2018-T11-B4/main/blob/master/collated/test/software-1234.md[Test code]]
 
@@ -30,6 +28,7 @@ Used third-party currency converter library from github: https://github.com/Rita
 * *Other contributions*:
 
 ** Project management:
+*** Contributed code from v1.0 on
 *** Created milestones from v1.2 to v1.5rc and managed releases for v1.3.
 *** Created issues from v1.2
 ** Documentation:
